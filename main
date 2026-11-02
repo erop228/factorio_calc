@@ -1,0 +1,34 @@
+out_mas = 0
+out_d = 74
+out_t = 74
+out_png = 348
+
+ost = 0
+min_ost = int.max
+
+resurs = {"dis": int(), "mas": int(), "neft_g": int(), "kub": int(0)}
+
+def neft(colvo: int):
+    return {"dis": int(colvo*9), "mas": int(colvo*5), "neft_g": int(colvo*11)}
+    
+def dis_to_kub(resurs):
+    if resurs["dis"]<10:
+        return resurs
+    return {"dis": resurs["dis"]%10, "mas": resurs["mas"], "neft_g": resurs["neft_g"], "kub": resurs["kub"] + resurs["dis"]//10}
+
+
+def dis_to_kub(resurs):
+    if resurs["dis"]<10:
+        return resurs
+    return {"dis": resurs["dis"]%10, "mas": resurs["mas"], resurs["neft_g"], resurs["kub"] + resurs["dis"]//10}
+
+
+def neft_to_kub(colvo_neft):
+    if colvo_neft<20:
+        return 0, colvo_neft
+    return colvo_neft//20, colvo_neft%20
+
+for i in range(1,100):
+    resurs = neft(i)
+    if resurs["mas"] > out_mas:
+        
